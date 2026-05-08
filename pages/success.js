@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { BsBagCheckFill } from 'react-icons/bs';
 
@@ -11,7 +11,7 @@ const Success = () => {
     setCartItems([]);
     setTotalPrice(0);
     setTotalQuantities(0);
-  }, []);
+  }, [setCartItems, setTotalPrice, setTotalQuantities]);
 
   return (
     <div className="success-wrapper">
@@ -27,7 +27,7 @@ const Success = () => {
             order@example.com
           </a>
         </p>
-        <Link href="/">
+        <Link href="/" passHref>
           <button type="button" width="300px" className="btn">
             Continue Shopping
           </button>

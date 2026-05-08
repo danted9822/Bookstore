@@ -9,16 +9,19 @@ const Product = ({ product: { image, name, slug, price, author } }) => {
   return (
     <div>
       <Link href={`/product/${slug.current}`}>
+        <a>
         <div className='product-card'>
           <img src={urlFor(image && image[0])}
             width={250}
             height={250}
-            className='product-image' />
+            className='product-image'
+            alt={`${name} cover`} />
           <p className='product-name'> {name}</p>
           <p className='product-author'>by {author}</p>
           <p className='product-price'>${price}</p>
 
         </div>
+        </a>
       </Link>
     </div>
   )

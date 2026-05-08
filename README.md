@@ -31,7 +31,7 @@ A modern bookstore web app built with **Next.js**, powered by **Sanity CMS** for
 
 ## Prerequisites
 
-- Node.js 16+ (recommended for this project)
+- Node.js 24.x
 - npm (or yarn)
 - A Sanity project
 - A Stripe account (test mode is enough for local development)
@@ -126,6 +126,22 @@ npm run start
 You can deploy the storefront to Vercel.
 
 Before deploying, make sure all required environment variables are configured in your hosting platform.
+
+### Vercel Deployment Checklist
+
+1. Push latest code to GitHub.
+2. Set Node.js version to `24.x` in Vercel Project Settings.
+3. Add environment variables:
+   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_...`
+   - `STRIPE_SECRET_KEY=sk_...`
+4. Verify key pairing:
+   - `pk_test` with `sk_test`
+   - `pk_live` with `sk_live`
+5. Redeploy after every env change.
+6. Test checkout end-to-end:
+   - Add product to cart
+   - Start Stripe checkout
+   - Verify `/success` and `/canceled` flows
 
 ## Current Limitations / TODO
 

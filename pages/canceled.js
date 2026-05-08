@@ -9,7 +9,7 @@ const Canceled = () => {
         <p className="description">
           Your payment was not completed, and your cart is still available.
         </p>
-        <Link href="/">
+        <Link href="/" passHref>
           <button type="button" width="300px" className="btn">
             Continue Shopping
           </button>
