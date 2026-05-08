@@ -23,15 +23,12 @@ const Cart = () => {
       body: JSON.stringify(cartItems),
     });
 
-    if(response.statusCode === 500) return;
+    if (!response.ok) {
+      toast.error('Checkout failed. Please try again.');
+      return;
+    }
 
-    console.log(response);
-    
     const data = await response.json();
-
-    console.log(data)
-
-    console.log(data.id);
 
     toast.loading('Redirecting...');
 
@@ -81,7 +78,7 @@ const Cart = () => {
                     <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
                     <AiOutlineMinus />
                     </span>
-                    <span className="num" onClick="">{item.quantity}</span>
+                    <span className="num">{item.quantity}</span>
                     <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc') }><AiOutlinePlus /></span>
                   </p>
                   </div>
